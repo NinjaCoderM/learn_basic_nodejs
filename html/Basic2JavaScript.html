@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    *{ font-family: sans-serif;}
+    p,ol,div,img{margin: 30px}
+    .alert{
+      padding: 20px;
+      border: 1px solid black;
+      border-radius: 5px;
+    }
+    .alert-success{
+      background-color: #a8d3a1;
+      color: #3c5328;
+    }
+    .alert-danger{
+      background-color: #431313;
+      color: #bf7878;
+    }
+  </style>
+</head>
+<body>
+  <h1>Element einfügen und löschen</h1>
+  <br> <br> <br>
+
+
+  <div class="alert alert-success"><strong>Hallo!</strong> Ich bin ein Alert</div>
+  <p id="tag_p_trennung">---------Trennung-----------</p>
+
+  <script>
+    "use strict"
+    let newAlert = document.createElement("dev")
+    newAlert.className="alert alert-danger";
+    newAlert.innerHTML="<strong>Moin!</strong> Ich bin aber Cooler"
+
+    document.body.append(newAlert);
+
+    tag_p_trennung.after(newAlert);
+
+    let newAlert2 = document.createElement("dev")
+    newAlert2.className="alert";
+    newAlert2.innerHTML="<strong>Aloha!</strong> Bin in p"
+
+    tag_p_trennung.append(newAlert2);
+    tag_p_trennung.style.color="red";
+    tag_p_trennung.style.backgroundColor="grey"
+
+
+  </script>
+
+</body>
+</html>

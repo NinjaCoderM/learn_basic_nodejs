@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+  <div id="element1" class="elementclass1">Das ist Element 1</div>
+  <div id="element2" class="elementclass1">Das ist Element 2</div>
+  <p id="element3" class="elementclass3">Das ist Element 3</p>
+  <ul>
+    <li>zu Eins</li>
+    <li>zu Zwei</li>
+  </ul>
+
+<script>
+  let e1 = document.getElementById("element1");
+  e1.className = "c1 c2"
+  console.log(e1);
+
+  let ec1 = document.getElementsByClassName("elementclass1");
+  ec1.innerHTML = "Ich bin ein neues Element"
+  console.log(ec1);
+
+  let tagName = document.getElementsByTagName("div");
+  console.log(tagName);
+
+  let name = document.getElementsByName("div");
+  console.log(name);
+
+  let tagNameNS = document.getElementsByTagNameNS("http://www.w3.org/1999/xhtml","div");
+  console.log(tagNameNS);
+
+  let querySelector = document.querySelector("#element2");
+  console.log(querySelector);
+
+  let querySelClass = document.querySelectorAll(".elementclass3");
+  console.log(querySelClass);
+
+  let liFirstChild = document.querySelector("ul > li:first-child");
+  console.log(liFirstChild);
+
+</script>
+
+</body>
+</html>
