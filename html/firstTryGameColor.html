@@ -1,0 +1,135 @@
+<!--
+  ~ Copyright (c) CodeEngine Academy by Markus Lech.
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <title>Color Game</title>
+  <link rel="stylesheet" type="text/css" href="../css/game.css">
+</head>
+<body>
+<h1 id="gameheader">
+  Suche die Farbe
+  <br>
+  <span id="rgbCode">RGB</span>
+  <br>
+</h1>
+
+<div id="stripe">
+  <button id="reset">New Colors</button>
+  <span id="message"></span>
+  <button id="easyBTN" class="" value="3">Easy</button>
+  <button id="normalBTN" class="selected">Normal</button>
+  <button id="hardBTN" class="">Hard</button>
+</div>
+
+<div class="container">
+  <div class="items">
+    <div id="value1" class="square"></div>
+    <div id="value2" class="square"></div>
+    <div id="value3" class="square"></div>
+    <div id="value4" class="square"></div>
+    <div id="value5" class="square"></div>
+    <div id="value6" class="square"></div>
+    <div id="value7" class="square"></div>
+    <div id="value8" class="square"></div>
+    <div id="value9" class="square"></div>
+  </div>
+</div>
+
+<script src="../js-file/game.js"  type="text/javascript"> </script>
+
+<script type="text/javascript">
+  "use strict"
+  console.log("Start ...")
+  $(function(){
+    let max = 6;
+    let findRendomValue = function (maxValue) {
+      return Math.floor(Math.random() * maxValue) + 1;
+    }
+    let findNewColor = function () {
+      return {
+        r: findRendomValue(255), g: findRendomValue(255), b: findRendomValue(255)
+      }
+    }
+    let findNewColors = function (max) {
+      return {
+        key: findRendomValue(max),
+        value1: findNewColor(),
+        value2: findNewColor(),
+        value3: findNewColor(),
+        value4: findNewColor(),
+        value5: findNewColor(),
+        value6: findNewColor(),
+        value7: findNewColor(),
+        value8: findNewColor(),
+        value9: findNewColor()
+      }
+    }
+
+    let colorAndKey;
+    let replaceRGBText;
+
+    function funcColor() {
+      colorAndKey = findNewColors(max);
+      let valuePlusKey = 'value'+colorAndKey.key;
+      replaceRGBText = 'RGB (' + colorAndKey[valuePlusKey]["r"] + ', ' + colorAndKey[valuePlusKey]["g"] + ', ' + colorAndKey[valuePlusKey]["b"] + ')'
+      let gheader =  $('#gameheader');
+      gheader.html( "SUCHE DIE FARBEN <br>  <span id=\"rgbCode\">RGB</span>  <br>" );
+      $('#rgbCode').text(replaceRGBText);
+      gheader.css("background-color", "");
+      Object.keys(colorAndKey)
+        .filter(key => key.startsWith("value"))
+        .forEach( key =>{
+          let rgbString = `rgb(${colorAndKey[key].r}, ${colorAndKey[key].g}, ${colorAndKey[key].b})`;
+          console.log(key + ' >>> ' + rgbString)
+          let square = $('#'+key);
+          if(key.replace('value', '')>max){
+            square.hide();
+          } else {
+            square.show();
+            square.css("background-color", rgbString);
+          }
+
+      });
+    }
+
+    funcColor();
+
+
+
+    $("#reset").on('click', funcColor)
+
+    $('.square').on('click', function(){
+      let gheader = $('#gameheader');
+      if(($(this).attr('id')).includes(colorAndKey['key'])){
+        $('#message').text("Success");
+        gheader.text("Success");
+        let keyVal = 'value'+colorAndKey['key'];
+        console.log(keyVal);
+        let rgbString = `rgb(${colorAndKey[keyVal].r}, ${colorAndKey[keyVal].g}, ${colorAndKey[keyVal].b})`;
+        gheader.css("background-color", rgbString);
+      } else {
+        $('#message').text("FAIL");
+        gheader.text();
+        gheader.html( "SUCHE DIE FARBEN <br>  <span id=\"rgbCode\">RGB</span>  <br>" );
+        $('#rgbCode').text(replaceRGBText)
+        gheader.css("background-color", "");
+      }
+    });
+
+    $('#easyBTN').on('click', function(){max=3; funcColor();});
+    $('#normalBTN').on('click', function(){max=6; funcColor();});
+    $('#hardBTN').on('click', function(){max=9; funcColor();});
+
+
+  })
+
+
+</script>
+
+</body>
+</html>
