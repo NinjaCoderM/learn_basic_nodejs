@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+  <title>Document Ready</title>
+  <style>
+    *{font-family: sans-serif}
+    #color, #color2{
+      width: 150px;
+      height: 150px;
+      background-color: #a8d3a1;
+    }
+  </style>
+</head>
+<body>
+<h1>Document Ready Function</h1>
+
+<div id="color"></div>
+<br>
+<button id="hide" type="button">Hide</button>
+<button id="show" type="button">Show</button>
+<button id="toggle" type="button">Toggle</button>
+<br>
+<br>
+<div id="color2"></div>
+<p></p>
+<script type="text/javascript">
+  "use strict"
+  $(function() {alert("Done!");})
+  $(function() {
+    $("p").text("Das DOM ist geladen und kann verändert werden")
+  })
+
+  $(function() {
+    //veraltet
+        //$("#color").click(function(){ $(this).css("background-color", "red") })
+    //NEU
+    $('#color')
+      .on('click', function (){$(this).css("background-color", "red")})
+      .on('mouseover', function (){$(this).css("background-color", "red")});
+  })
+  $(function() {
+      $("#hide").on("click", function(){$("#color2").slideUp(4000)});
+      $("#show").on("click", function(){$("#color2").slideDown()});
+      $("#toggle").on("click", function(){$("#color2").slideToggle()});
+  })
+
+</script>
+
+</body>
+</html>
