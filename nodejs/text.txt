@@ -1,0 +1,3 @@
+Name, Anzahl, Preis
+Apfel, 4, 4€
+Apfel+, 4, 40€
