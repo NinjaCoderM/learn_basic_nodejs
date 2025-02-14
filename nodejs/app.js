@@ -31,8 +31,8 @@ const addItem = async (filePath, name, anzahl, preis, options) => {
 
 let textArray = [["A", "2", "2€"], ["B", "3", "3€"], ["C", "4", "4€"]];
 
-(async function(){ //wegen Reihenfolge mit await pro Zeile
-  await writeFile('text.txt', 'Name, Anzahl, Preis', { encoding: "utf8" });
+(async function () { //wegen Reihenfolge mit await pro Zeile
+  await writeFile('text.txt', 'Name, Anzahl, Preis', {encoding: "utf8"});
   await addItem('text.txt', 'Apfel', '4', '4€', {flag: "a", encoding: "utf8"});
   await addItem('text.txt', 'Apfel+', '4', '40€', {flag: "a", encoding: "utf8"});
   for (const item of textArray) {
@@ -42,12 +42,22 @@ let textArray = [["A", "2", "2€"], ["B", "3", "3€"], ["C", "4", "4€"]];
 })();
 
 async function deleteFile(filePath) {
-  try{
+  try {
     await fs.unlink(filePath);
+  } catch (error) {
+    console.log("Es gab einen Fehler: " + error.message);
+  }
+}
+
+async function moveFile(source, destination) {
+  try{
+    await fs.rename(source, destination);
   } catch(error){
     console.log("Es gab einen Fehler: " + error.message);
   }
 }
+
+
 
 
 
