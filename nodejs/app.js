@@ -41,6 +41,14 @@ let textArray = [["A", "2", "2€"], ["B", "3", "3€"], ["C", "4", "4€"]];
   await readFile2('text.txt', 'utf8');
 })();
 
+async function deleteFile(filePath) {
+  try{
+    await fs.unlink(filePath);
+  } catch(error){
+    console.log("Es gab einen Fehler: " + error.message);
+  }
+}
+
 
 
 
