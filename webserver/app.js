@@ -5,6 +5,10 @@ server.get('/', (req, res) => {
   res.send("Hallo Welt");
 })
 
+server.get('/profil/data', (req, res) => {
+  res.send(`Data `)
+})
+
 server.get('/profil/:userId', (req, res) => {
   res.send(`Hello World, im Profil ` + req.params.userId )
 })
