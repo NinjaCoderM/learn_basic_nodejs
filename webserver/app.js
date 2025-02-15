@@ -5,12 +5,17 @@ server.get('/', (req, res) => {
   res.send("Hallo Welt");
 })
 
-server.use((req, res) => {
-  res.status(404).send("Not Found");
+server.get('/profil/:userId', (req, res) => {
+  res.send(`Hello World, im Profil ` + req.params.userId )
 })
+
 
 server.post('/profil', (req, res) => {
   res.send('Hello World, im Profil')
+})
+
+server.use((req, res) => {
+  res.status(404).send("Not Found");
 })
 
 server.listen(PORT, ()=> console.log("Server ist gestartet auf PORT: " + PORT))
