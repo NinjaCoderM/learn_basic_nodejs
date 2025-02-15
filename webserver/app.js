@@ -10,7 +10,7 @@ import MainLayouts from "express-ejs-layouts";
 server.use(express.static("views/public"));
 
 server.use(MainLayouts);
-server.set("layout", "layouts/template")
+server.set("layout", "layouts/template") //Standart - Abweichung mit res.render option layout: "layouts/templateEx"
 server.set("view engine", "ejs");
 
 server.get('/', (req, res) => {
