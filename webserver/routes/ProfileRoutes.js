@@ -16,6 +16,10 @@ ProfileRoutes.route("/userdata").get((req, res) => {
   res.send(`UserData put `)
 })
 
+ProfileRoutes.get('/Horst', (req, res) => {
+  res.render("main/profil", {name:"Horst"})
+})
+
 ProfileRoutes.get('/:userId', (req, res) => {
   res.send(`Hello World, im Profil ` + req.params.userId )
 })

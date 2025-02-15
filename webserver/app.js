@@ -1,7 +1,10 @@
 "strict mode"
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
-import {ProfileRoutes} from  "./routes/ProfileRoutes.js"
+import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
+import MainLayouts from "express-ejs-layouts";
 
+server.use(MainLayouts);
+server.set("layout", "layouts/template")
 server.set("view engine", "ejs");
 
 server.get('/', (req, res) => {
