@@ -5,6 +5,10 @@ server.get('/', (req, res) => {
   res.send('Hello World ...+')
 })
 
+server.get('/profil', (req, res) => {
+  res.send('Hello World, im Profil')
+})
+
 server.listen(PORT, ()=> console.log("Server ist gestartet auf PORT: " + PORT))
 
 console.log("gestartet ... ")
