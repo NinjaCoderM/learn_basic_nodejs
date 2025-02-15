@@ -1,4 +1,4 @@
-function creditCard(number, besitzer) {
+function CreditCard(number, besitzer) {
   return {
     cardNumber: number,
     name: besitzer,
@@ -7,6 +7,8 @@ function creditCard(number, besitzer) {
     }
   }
 }
-let myCard = creditCard("215330021", "MM");
+let myCard = CreditCard("215330021", "MM");
 console.log(myCard);
 console.log(myCard.info());
+
+
