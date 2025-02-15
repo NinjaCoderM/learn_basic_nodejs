@@ -8,7 +8,7 @@ server.set("layout", "layouts/template")
 server.set("view engine", "ejs");
 
 server.get('/', (req, res) => {
-  res.render("main/index", {name: "Simone", nachname:"Müllller"});
+  res.render("main/index", {name: "Simone", nachname:"Müllller", title:"Title Simone"});
 })
 
 server.use("/profil",ProfileRoutes);
