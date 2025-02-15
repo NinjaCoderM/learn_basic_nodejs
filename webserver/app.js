@@ -1,7 +1,13 @@
+import express from "express";
+
 "strict mode"
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
 import MainLayouts from "express-ejs-layouts";
+
+
+
+server.use(express.static("views/public"));
 
 server.use(MainLayouts);
 server.set("layout", "layouts/template")
