@@ -7,9 +7,9 @@ ProfileRoutes.get('/data', (req, res) => {
 })
 
 ProfileRoutes.route("/userdata").get((req, res) => {
-  res.send(`UserData get `)
+  res.render("main/usrData", {title: "User Data", path: req.path});
 }).post((req, res) => {
-  res.send(`UserData post `)
+  res.render("main/index", {name: req.body.eingabe, nachname:"Müllller", title:"Title Simone", path: req.path});
 }).delete((req, res) => {
   res.send(`UserData delete `)
 }).put((req, res) => {

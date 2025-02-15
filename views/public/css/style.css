@@ -34,3 +34,19 @@ body{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: #eee;
 }
+
+input{
+  border: none;
+  border-radius: 4px;
+}
+
+button{
+  color: white;
+  border: none;
+  border-radius: 4px;
+  background-color: #01447e;
+}
+
+button:hover{
+  background-color: #017e61;
+}

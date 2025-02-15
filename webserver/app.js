@@ -4,8 +4,9 @@ import express from "express";
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
 import MainLayouts from "express-ejs-layouts";
+import * as repl from "node:repl";
 
-
+server.use(express.urlencoded({ extended: true }));
 
 server.use(express.static("views/public"));
 
