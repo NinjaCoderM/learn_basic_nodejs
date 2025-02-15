@@ -1,0 +1,14 @@
+<ul class="breadcrumb">
+    <li><a href="/">Home</a></li>
+    <% let paths = path.split('/').filter(p => p); %>
+    <% let currentPath = ''; %>
+
+    <% paths.forEach((segment, index) => { %>
+        <% currentPath += '/' + segment; %>
+        <% if (index === paths.length - 1) { %>
+            <li><span><%= segment %></span></li> <!-- Aktuelle Seite ohne Link -->
+        <% } else { %>
+            <li><a href="<%= currentPath %>"><%= segment %></a></li>
+        <% } %>
+    <% }) %>
+</ul>
