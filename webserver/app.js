@@ -2,8 +2,10 @@
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 import {ProfileRoutes} from  "./routes/ProfileRoutes.js"
 
+server.set("view engine", "ejs");
+
 server.get('/', (req, res) => {
-  res.send("Hallo Welt");
+  res.render("main/index");
 })
 
 server.use("/profil",ProfileRoutes);
