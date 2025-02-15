@@ -2,7 +2,7 @@
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 
 server.get('/', (req, res) => {
-  res.status(404).send('ups');
+  res.json({name: "Klaus", alter:44});
 })
 
 server.post('/profil', (req, res) => {
