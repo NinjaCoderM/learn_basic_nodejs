@@ -17,7 +17,7 @@ ProfileRoutes.route("/userdata").get((req, res) => {
 })
 
 ProfileRoutes.get('/Horst', (req, res) => {
-  res.render("main/profil", {name:"Horst", title:"Title Horst"})
+  res.render("main/profil", {name:"Horst", title:"Title Horst", path: req.path})
 })
 
 ProfileRoutes.get('/:userId', (req, res) => {
