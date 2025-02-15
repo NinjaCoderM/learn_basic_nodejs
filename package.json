@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "",
   "main": "webserver/index.js",
+  "type": "module",
   "private": true,
   "keywords": [
     ""
