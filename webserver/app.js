@@ -2,7 +2,7 @@
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 
 server.get('/', (req, res) => {
-  res.redirect("/profil");
+  res.download("webserver/index.js");
 })
 
 server.post('/profil', (req, res) => {
