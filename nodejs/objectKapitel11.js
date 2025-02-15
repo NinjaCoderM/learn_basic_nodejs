@@ -1,3 +1,5 @@
+"strict mode"
+
 function CreditCard(number, besitzer) {
   return {
     cardNumber: number,
@@ -17,7 +19,20 @@ function ConstCreditCard(number, besitzer) {
   this.info = function(){return "Constructor Example Credit Card " + this.number + " from " + this.besitzer;};
 }
 
-let myConstCreditCard = new ConstCreditCard("215330021", "MM");
+let myConstCreditCard = new ConstCreditCard("215330021", "MM2");
 console.log(myConstCreditCard);
 console.log(myConstCreditCard.info());
 
+class ClassCreditCard {
+  constructor(number, besitzer) {
+    this.number = number;
+    this.besitzer = besitzer;
+    this.info = function () {
+      return "Constructor Example Credit Card " + this.number + " from " + this.besitzer;
+    };
+  }
+}
+
+let classCreditCard = new ClassCreditCard("215330021", "MM3");
+console.log(classCreditCard);
+console.log(classCreditCard.info());
