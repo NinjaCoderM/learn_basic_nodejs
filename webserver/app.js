@@ -5,7 +5,7 @@ import {ProfileRoutes} from  "./routes/ProfileRoutes.js"
 server.set("view engine", "ejs");
 
 server.get('/', (req, res) => {
-  res.render("main/index");
+  res.render("main/index", {name: "Simone", nachname:"Müllller"});
 })
 
 server.use("/profil",ProfileRoutes);
