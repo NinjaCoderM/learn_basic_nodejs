@@ -5,7 +5,7 @@ server.get('/', (req, res) => {
   res.send('Hello World ...+')
 })
 
-server.get('/profil', (req, res) => {
+server.post('/profil', (req, res) => {
   res.send('Hello World, im Profil')
 })
 
