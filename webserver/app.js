@@ -4,9 +4,11 @@ import express from "express";
 import {server, PORT} from "./server.js"; //"type": "module" in package.json notwendig
 import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
 import MainLayouts from "express-ejs-layouts";
-import * as repl from "node:repl";
+import {logger} from "../middleware/logger.js"
 
 server.use(express.urlencoded({ extended: true }));
+
+//server.use(logger)
 
 server.use(express.static("views/public"));
 
@@ -14,7 +16,7 @@ server.use(MainLayouts);
 server.set("layout", "layouts/template") //Standart - Abweichung mit res.render option layout: "layouts/templateEx"
 server.set("view engine", "ejs");
 
-server.get('/', (req, res) => {
+server.get('/', logger, (req, res) => {
   res.render("main/index", {name: "Simone", nachname:"Müllller", title:"Title Simone", path: req.path});
 })
 
