@@ -1,26 +1,12 @@
 import express from 'express';
 import {connection} from "../../db/db.js";
 import {ProfileRoutes} from "./ProfileRoutes.js";
+import studentController from "../../dbControllers/studentController.js";
 
 export let StudentRoutes = express.Router();
 
-StudentRoutes.route("/").get(async (req, res) => {
-  try {
-    const students = await connection`SELECT * FROM student`;
+StudentRoutes.route("/").get(studentController.getStudent, (req, res) => {
 
-    if (students.length > 0) {
-      res.render("main/student", {
-        students: students,
-        title: "Studenten Übersicht",
-        path: req.path
-      });
-    } else {
-      res.status(404).send("Student not found");
-    }
-  } catch (error) {
-    console.error("Database error:", error);
-    res.status(500).send("Internal Server Error");
-  }
 }).post((req, res) => {
   res.render("main/student", {name: req.body.eingabe, nachname:"Müllller", title:"Title Simone", path: req.path});
 }).delete((req, res) => {
