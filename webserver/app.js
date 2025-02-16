@@ -6,6 +6,20 @@ import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
 import MainLayouts from "express-ejs-layouts";
 import {logger} from "../middleware/logger.js"
 import {logJson2FS} from "../middleware/jsonLoggerFS.js";
+import {connection} from "../db/db.js";
+
+//MySQL
+//connection.query(
+//  'select * from `student`',
+//  function (error, results, fields) {
+//    console.log(results);
+//  }
+//)
+
+(async () => {
+  const students = await connection`select * from student`;
+  console.log(students);
+})();
 
 server.use(express.urlencoded({ extended: true }));
 
