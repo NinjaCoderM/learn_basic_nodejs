@@ -1,0 +1,8 @@
+<h1>Studentenübersicht</h1>
+
+<ul>
+    <% students.forEach((st) => { %>
+        <li><%= st.first_name%> <%= st.last_name %>, email: <%= st.email %></li>
+    <% }); %>
+</ul>
+

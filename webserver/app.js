@@ -6,7 +6,7 @@ import {ProfileRoutes} from  "./routes/ProfileRoutes.js";
 import MainLayouts from "express-ejs-layouts";
 import {logger} from "../middleware/logger.js"
 import {logJson2FS} from "../middleware/jsonLoggerFS.js";
-import {connection} from "../db/db.js";
+import {StudentRoutes} from "./routes/StudentRoutes.js";
 
 //MySQL
 //connection.query(
@@ -16,10 +16,7 @@ import {connection} from "../db/db.js";
 //  }
 //)
 
-(async () => {
-  const students = await connection`select * from student`;
-  console.log(students);
-})();
+
 
 server.use(express.urlencoded({ extended: true }));
 
@@ -37,6 +34,7 @@ server.get('/', /*logger,*/ (req, res) => {
 })
 
 server.use("/profil",ProfileRoutes);
+server.use("/student",StudentRoutes);
 
 server.use((req, res) => {
   res.status(404).send("Not Found");
