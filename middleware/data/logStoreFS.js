@@ -1,4 +1,4 @@
-import {promises as fs} from "node:fs";
+import fs from "fs/promises";//import {promises as fs} from "node:fs";
 import {AllLogs} from "../jsonLoggerFS.js";
 import path from "path";
 

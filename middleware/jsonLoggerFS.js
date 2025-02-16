@@ -9,7 +9,7 @@ const __dirname = path.dirname(__filename);
 
 
 export const logJson2FS = (req, res, next) => {
-   let item = new LogItem(new Date().toLocaleString(), req.url );
+   let item = new LogItem(new Date, req.url );
    if(!item.url.includes("css")){
      addLog(item);
    }
