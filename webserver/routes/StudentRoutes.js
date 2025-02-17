@@ -1,16 +1,14 @@
 import express from 'express';
 import {connection} from "../../db/db.js";
 import {ProfileRoutes} from "./ProfileRoutes.js";
-import studentController, {editStudent} from "../../dbControllers/studentController.js";
+import studentController, {deleteStudent, editStudent} from "../../dbControllers/studentController.js";
 
 export let StudentRoutes = express.Router();
 
 StudentRoutes.route("/").get(studentController.getStudent, (req, res) => {})
   .post(studentController.addStudent, (req, res) => {})
   .put(studentController.editStudent, (req, res) => {})
-  .delete((req, res) => {
-  res.send(`UserData delete `)
-})
+  .delete(studentController.deleteStudent, (req, res) => {})
 
 
 StudentRoutes.get('/:id', async (req, res) => {

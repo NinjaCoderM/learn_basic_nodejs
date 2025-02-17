@@ -31,6 +31,25 @@ class Student {
 
   }
 
+  static async deleteStudent(id) {
+    try {
+      const result = await connection`DELETE FROM student WHERE id = ${id} RETURNING *`;
+
+      console.log(result);
+      console.log(result.rowCount);
+      console.log(result.length);
+
+      // Falls keine Zeile gelöscht wurde
+      if (result.length === 0) {
+        throw new Error(`Kein Student mit ID ${id} gefunden.`);
+      }
+
+      return { message: `Student mit ID ${id} wurde gelöscht.` };
+    } catch (error) {
+      console.error("Fehler beim Löschen:", error);
+      throw new Error("Fehler beim Löschen des Datensatzes." + error.message);
+    }
+  }
 }
 
 export default Student;

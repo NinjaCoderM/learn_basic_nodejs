@@ -51,8 +51,29 @@ export const editStudent = async(req, res, next) => {
   next()
 }
 
+export const deleteStudent = async(req, res, next) => {
+  if(req.body.id === undefined){
+    return res.status(404).send("Id is required");
+  }
+  try {
+    let result = await Student.deleteStudent(req.body.id);
+    console.log(result instanceof Promise);
+    console.log(result);
+    res.send(result.message);
+  } catch (err) {
+    console.log(err);
+    if(err.message.includes('Kein Student mit ID')){
+      res.status(404).send(err.message);
+    } else {
+      res.status(500).send(err.message);
+    }
+
+  }
+  next()
+}
+
 export default {
-  getStudent, addStudent, editStudent
+  getStudent, addStudent, editStudent, deleteStudent
 };
 
 
