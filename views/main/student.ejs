@@ -1,13 +1,29 @@
 <h1>Studentenübersicht</h1>
 
+<script src="/javascript/changeStudent.js"></script>
 <div class="students">
     <% students.forEach((st) => { %>
-        <div class="student">
+        <div class="student" id="student-<%= st.id %>">
+            <!-- Anzeige der Studentendaten -->
             <span class="first-name"><%= st.first_name %></span>
             <span class="last-name"><%= st.last_name %></span>
             <span class="email"><%= st.email %></span>
+
+            <!-- Button 1: "Bearbeiten" -->
+            <button class="edit-btn" onclick="editStudent(<%= st.id %>)">Bearbeiten</button>
+
+            <!-- Button 2: "Abbrechen", nur sichtbar, wenn "Bearbeiten" geklickt wurde -->
+            <button class="cancel-btn" onclick="cancelEdit(<%= st.id %>)" style="display: none;">Abbrechen</button>
+
+            <!-- Button 3: "Speichern", nur sichtbar, wenn "Bearbeiten" geklickt wurde -->
+            <button class="save-btn" onclick="saveStudent(<%= st.id %>)" style="display: none;">Speichern</button>
+
+            <!-- Unsichtbares Feld für ID, das mitgesendet werden soll -->
+            <input type="hidden" class="student-id" value="<%= st.id %>">
         </div>
     <% }); %>
+        <div id="error-message" style="display: none; color: red;"></div>
+
 </div>
 
 <h3>Neue Studenten Eintragen</h3>

@@ -48,6 +48,10 @@ button{
   margin-top: 10px;
   margin-bottom: 10px;
 }
+.edit-btn{
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
 button:hover{
   background-color: #017e61;
@@ -92,5 +96,6 @@ button:hover{
 
 .email {
   color: gray;
+  width: 150px;
 }
 
