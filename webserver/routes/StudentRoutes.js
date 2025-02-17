@@ -5,11 +5,9 @@ import studentController from "../../dbControllers/studentController.js";
 
 export let StudentRoutes = express.Router();
 
-StudentRoutes.route("/").get(studentController.getStudent, (req, res) => {
-
-}).post((req, res) => {
-  res.render("main/student", {name: req.body.eingabe, nachname:"Müllller", title:"Title Simone", path: req.path});
-}).delete((req, res) => {
+StudentRoutes.route("/").get(studentController.getStudent, (req, res) => {})
+  .post(studentController.addStudent, (req, res) => {})
+  .delete((req, res) => {
   res.send(`UserData delete `)
 }).put((req, res) => {
   res.send(`UserData put `)

@@ -45,8 +45,52 @@ button{
   border: none;
   border-radius: 4px;
   background-color: #01447e;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 button:hover{
   background-color: #017e61;
 }
+.input-normal {
+  width: 100%;
+  max-width: 250px;
+  min-width: 150px;
+}
+
+.form-container-small {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  gap: 10px;
+  align-items: center;
+  max-width: 300px;
+}
+
+.students {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+}
+
+.student {
+  display: flex;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 5px;
+  align-items: center;
+}
+
+.first-name {
+  width: 100px;
+  font-weight: bold;
+}
+
+.last-name {
+  width: 120px;
+}
+
+.email {
+  color: gray;
+}
+

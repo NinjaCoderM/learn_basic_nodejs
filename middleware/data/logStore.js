@@ -18,7 +18,7 @@ export const getLogs = async () => {
       allLogs = new AllLogs([]);
     }
   } else {
-    console.log("use cache " + allLogs.logItems.l);
+    console.log("use cache " + allLogs.logItems.length);
   }
   return allLogs;
 };

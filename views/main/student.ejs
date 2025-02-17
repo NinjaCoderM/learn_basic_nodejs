@@ -1,8 +1,27 @@
 <h1>Studentenübersicht</h1>
 
-<ul>
+<div class="students">
     <% students.forEach((st) => { %>
-        <li><%= st.first_name%> <%= st.last_name %>, email: <%= st.email %></li>
+        <div class="student">
+            <span class="first-name"><%= st.first_name %></span>
+            <span class="last-name"><%= st.last_name %></span>
+            <span class="email"><%= st.email %></span>
+        </div>
     <% }); %>
-</ul>
+</div>
 
+<h3>Neue Studenten Eintragen</h3>
+
+<form action="/student" method="post">
+    <div class="form-container-small">
+        <label for = "fname" >Vorname</label>
+        <input class="input-normal" type="text" name="fname" placeholder="Bitte Vorname eingeben...">
+
+        <label for = "lname" >Nachname</label>
+        <input class="input-normal" type="text" name="lname" placeholder="Bitte Nachname eingeben...">
+
+        <label for = "email" >Email</label>
+        <input class="input-normal" type="text" name="email" placeholder="Bitte email eingeben...">
+    </div>
+    <button style="gap: 10px;" type="submit" value="speichern">Student hinzufügen</button>
+</form>
