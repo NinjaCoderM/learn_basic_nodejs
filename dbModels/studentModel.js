@@ -1,7 +1,8 @@
 import {connection} from "../db/db.js";
 
 class Student {
-  constructor(fname, lname, email) {
+  constructor(id, fname, lname, email) {
+    this.id = id;
     this.fname = fname;
     this.email = email;
     this.lname = lname;
@@ -21,6 +22,13 @@ class Student {
     }).catch(error => {
       console.error("Fehler beim Einfügen:", error);
     });
+  }
+
+  async editStudent(){
+    //console.log(this.id + " " + this.fname + " " + this.lname + " " + this.email);
+    return connection`UPDATE student set first_name = ${this.fname}, last_name = ${this.lname}, email = ${this.email} where id =  ${this.id}
+      RETURNING id, first_name, last_name, email`
+
   }
 
 }

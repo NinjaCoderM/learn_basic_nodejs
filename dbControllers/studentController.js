@@ -19,7 +19,7 @@ export const addStudent = async(req, res, next) => {
   try {
     console.log(req.body);
     try{
-      const student = new Student(req.body.fname, req.body.lname, req.body.email);
+      const student = new Student(null, req.body.fname, req.body.lname, req.body.email);
       let st = student.addStudent();
       console.log(st);
     } catch (err){
@@ -32,8 +32,27 @@ export const addStudent = async(req, res, next) => {
   next()
 }
 
+export const editStudent = async(req, res, next) => {
+  try {
+    console.log(req.body);
+    let st
+    try{
+      const student = new Student(req.body.id, req.body.fname, req.body.lname, req.body.email);
+      console.log(student);
+      st = await student.editStudent();
+      console.log(st);
+    } catch (err){
+      console.log(err);
+    }
+    res.json(st);
+  } catch (err){
+    console.log(err);
+  }
+  next()
+}
+
 export default {
-  getStudent, addStudent
+  getStudent, addStudent, editStudent
 };
 
 

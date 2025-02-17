@@ -17,7 +17,7 @@ import {StudentRoutes} from "./routes/StudentRoutes.js";
 //)
 
 
-
+server.use(express.json()); // sonst bei Postman mit Body raw keine Daten in req.body
 server.use(express.urlencoded({ extended: true }));
 
 //server.use(logger)
